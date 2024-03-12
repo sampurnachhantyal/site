@@ -1,0 +1,65 @@
+---
+
+import Header from "../components/Header.astro";
+---
+
+<section>
+    <div class="container mx-auto banner-height flex items-center justify-center">
+        <div class="flex flex-wrap">
+            <!-- Column 1 -->
+            <div class="lg:w-1/2 md:w-full">
+                <h1 class="w-full welcome-text">WELCOME TO <span>THREADCODE</span></h1>
+                <p class="sub-text">Unlocking Innovation, Driving Excellence</p>
+                <button class="learn-more-btn">Learn more</button>
+            </div>
+      
+            <!-- Column 2 -->
+            <div class="lg:w-1/2 md:w-full">
+                <img
+                    src="/images/banner-image-2.svg"
+                    alt="Banner image"
+                    width="100%"
+                    height="auto"
+                    class="w-full"
+                />
+            </div>
+          </div>
+    </div>
+</section> 
+<style>
+    section {
+        width: 100%;
+        height: 100vh;
+        /* background: linear-gradient(95.89deg, rgba(148, 172, 204, 0) 0.12%, #335695 138.58%); */
+    }
+    h1.welcome-text {
+        /* WELCOME TO THREADCODE */
+        font-weight: 700;
+        font-size: 65px;
+        line-height: 120%;
+        /* or 78px */
+        text-transform: uppercase;
+        color: #1D232A;
+    }
+    h1 span {
+        color: var(--logo-color);
+    }
+    p {
+        /* Unlocking Innovation, Driving Excellence */
+        font-size: 24px;
+        line-height: 120%;
+        color: #1D232A;
+    }
+    .learn-more-btn {
+        width: 180px;
+        height: 53px;
+        background: #2A579A;
+        border: 1px solid #2A579A;
+        border-radius: 50px;
+        color: #FFFFFF;
+        margin-top: 40px;
+    }
+    .banner-height {
+        height: calc(100vh - 174px);
+    }
+</style>
