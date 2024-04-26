@@ -6,7 +6,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
-  site: 'https://sampurnachhantyal.github.io',
-  base: 'site'
+  site: 'https://info.threadcodetech.com'
 
 });
