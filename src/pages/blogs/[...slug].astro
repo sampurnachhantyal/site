@@ -16,9 +16,16 @@ if (entry == undefined) {
   return Astro.redirect("/404");
 }
 
-console.log(entry);
-
 const { Content } = await entry.render();
+
+export function getStaticPaths(){
+  return [
+  {params : {slug: 'capturing-lifes-moments-with-canon-excellence'}},
+  {params: {slug: 'guardian-of-the-digital-realm-web-security'}},
+  {params:{slug: 'oaring-to-new-heights-the-world-of-drones'}},
+  {params: {slug: 'immerse-in-the-virtual-world-vr-development'}}
+  ];
+}
 ---
 
 <MainLayout>
