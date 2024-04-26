@@ -1,7 +1,7 @@
 ---
 title: 'Soaring to New Heights: The World of Drones'
 pubDate: 2024-01-16
-author: 'Sarah Davis'
+author: 'Amol Shrestha'
 image: 'image5.png'
 tags: ['drones', 'tech', 'gadgets']
 slug: soaring-to-new-heights-the-world-of-drones
