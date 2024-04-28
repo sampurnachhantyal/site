@@ -20,10 +20,7 @@ const { Content } = await entry.render();
 
 export function getStaticPaths(){
   return [
-  {params : {slug: 'capturing-lifes-moments-with-canon-excellence'}},
-  {params: {slug: 'guardian-of-the-digital-realm-web-security'}},
-  {params:{slug: 'oaring-to-new-heights-the-world-of-drones'}},
-  {params: {slug: 'immerse-in-the-virtual-world-vr-development'}}
+  {params: {slug: 'docker-&-its-importance'}},
   ];
 }
 ---
@@ -45,8 +42,8 @@ export function getStaticPaths(){
               > -->
               <img
                 class="mr-4 w-16 h-16 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                alt="Jese Leos"
+                src="/images/sagar.png"
+                alt="Sagar Budhathoki"
               />
               <div>
                 <a
@@ -56,7 +53,7 @@ export function getStaticPaths(){
                   >{entry.data.author}</a
                 >
                 <p class="text-base text-gray-500 dark:text-gray-400">
-                  Graphic Designer, educator & CEO Flowbite
+                  {entry.data.speciality}
                 </p>
                 <p class="text-base text-gray-500 dark:text-gray-400">
                   <time datetime="2022-02-08" title="February 8th, 2022"
@@ -69,11 +66,11 @@ export function getStaticPaths(){
             class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
             {entry.data.title}
           </h1>
-          <img
+          <!-- <img
             src={"/images/" + entry.data.image}
             alt="Article Image"
             class="w-full h-auto rounded-xl my-6"
-          />
+          /> -->
         </header>
         <div class="content-section text-gray-800 dark:text-white">
           <Content />
@@ -84,12 +81,147 @@ export function getStaticPaths(){
 </MainLayout>
 
 <style is:global>
+  /* Container for Markdown content */
+  /* .content-section {
+      max-width: 800px;
+      margin: 0 auto;
+  } */
+
+  .content-section a {
+    color: var(--logo-color);
+    font-weight: 600;
+    text-decoration: underline;
+  }
   .content-section p {
     margin: 20px 0;
   }
-
   .content-section h2 {
     margin: 20px 0;
     font-size: 1.8rem;
   }
+
+  .content-section img {
+    margin: 0 auto;
+  }
+
+  .content-section h1, .content-section h2, .content-section h3 {
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  .content-section h1 {
+    font-size: 3em;
+    /* color: #333; */
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 0.3em;
+    margin-bottom: 30px;
+  }
+
+  .content-section h2 {
+    font-size: 2.5em;
+    /* color: #555; */
+  }
+
+  .content-section h3 {
+    font-size: 2em;
+    /* color: #777; */
+  }
+  .content-section ul,
+  .content-section ol {
+    margin-bottom: 20px;
+    padding-left: 20px; /* Adjust indentation */
+  }
+
+  .content-section ul {
+    list-style-type: none; /* Remove default bullets */
+  }
+
+  .content-section ul li {
+    margin-bottom: 5px; /* Adjust spacing between list items */
+  }
+
+  .content-section ul ul li {
+    margin-left: 5px; /* Adjust second-level indentation */
+  }
+
+  .content-section ul li:before {
+    content: "\2022"; /* Default bullet symbol for first-level items */
+    color: #000000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 5px; /* Adjust spacing between bullet point and text */
+  }
+
+ .content-section ul ul li:before {
+    content: "\25AA"; /* Square bullet symbol for second-level items */
+    color: #000000;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 5px; /* Adjust spacing between bullet point and text */
+  }
+
+ .content-section ol li {
+    margin-bottom: 5px; /* Adjust spacing between list items */
+    list-style-type: decimal;
+  }
+  .content-section ol ul {
+    margin-top: 10px;
+  }
+  .content-section ol ul li {
+    list-style-type: disc;
+  }
+
+  /* CSS for markdown table */
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+  }
+
+  th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+  }
+
+  th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+  }
+
+    /* Custom CSS for styling markdown content inside <aside> tags */
+  aside {
+      background-color: #dbdbdbb9;
+      border-left: 6px solid #555;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-style: italic;
+  }
+
+  aside p {
+      margin-top: 0;
+      margin-bottom: 10px;
+  }
+
+  aside h1, aside h2, aside h3, aside h4, aside h5, aside h6 {
+      margin-top: 0;
+  }
+
+  aside ul, aside ol {
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-left: 20px;
+  }
+
+  aside img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+  }
+
 </style>
