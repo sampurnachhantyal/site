@@ -10,7 +10,7 @@ if (slug === undefined) {
   throw new Error("Slug is required");
 }
 
-const entry = await getEntry("blog", slug);
+const entry = await getEntry("career", slug);
 
 if (entry == undefined) {
   return Astro.redirect("/404");
@@ -20,7 +20,7 @@ const { Content } = await entry.render();
 
 export function getStaticPaths(){
   return [
-  {params: {slug: 'docker-&-its-importance'}},
+  {params: {slug: 'vacancy-java-fullstack-developer'}},
   ];
 }
 ---
@@ -31,41 +31,18 @@ export function getStaticPaths(){
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
       <article
         class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-        <header class="mb-4 lg:mb-6 not-format">
-          <address class="flex items-center mb-6 not-italic">
+        <header class="not-format">
+          <address class="flex items-center not-italic">
             <div
               class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-              <!-- <a
-                href="/articles"
-                class="inline-block bg-gray-100 p-2 mb-6 hover:bg-indigo-500 hover:text-white"
-                >Back To Articles</a
-              > -->
-              <img
-                class="mr-4 w-16 h-16 rounded-full"
-                src="/images/sagar.png"
-                alt="Sagar Budhathoki"
-              />
               <div>
-                <a
-                  href="#"
-                  rel="author"
-                  class="text-xl font-bold text-gray-900 dark:text-white"
-                  >{entry.data.author}</a
-                >
-                <p class="text-base text-gray-500 dark:text-gray-400">
-                  {entry.data.speciality}
-                </p>
-                <p class="text-base text-gray-500 dark:text-gray-400">
+                <p class="text-base text-gray-600 dark:text-gray-400">
                   <time datetime="2022-02-08" title="February 8th, 2022"
                     >{formatDate(entry.data.pubDate)}</time>
                 </p>
               </div>
             </div>
           </address>
-          <h1
-            class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-            {entry.data.title}
-          </h1>
           <!-- <img
             src={"/images/" + entry.data.image}
             alt="Article Image"
