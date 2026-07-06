@@ -21,7 +21,7 @@ interface Props {
   </div>
   <h2
     class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-    <a href={"/blogs/" + article.slug} class="hover:text-logo-color">{article.data.title}</a>
+    <a href={"/blogs/" + article.id} class="hover:text-logo-color">{article.data.title}</a>
   </h2>
   <p class="mb-5 font-light text-gray-500 dark:text-gray-400">
     Docker is a Containerization platform for packaging, deploying, and running applications as CONTAINERS.
@@ -36,7 +36,7 @@ interface Props {
       <span class="font-medium dark:text-white">{article.data.author}</span>
     </div>
     <a
-      href={"/blogs/" + article.slug}
+      href={"/blogs/" + article.id}
       class="inline-flex items-center font-medium card-readmore hover:underline">
       Read more
       <svg

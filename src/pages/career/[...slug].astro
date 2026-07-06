@@ -1,19 +1,19 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 // import Tags from "../../components/Tags.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { formatDate } from "../../utils";
 
 export async function getStaticPaths() {
   const careerEntries = await getCollection("career");
   return careerEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <MainLayout title={entry.data.title}>
