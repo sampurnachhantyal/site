@@ -146,7 +146,7 @@ export function getStaticPaths(){
 
   .content-section ul li:before {
     content: "\2022"; /* Default bullet symbol for first-level items */
-    color: #000000;
+    color: var(--logo-color);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -156,7 +156,7 @@ export function getStaticPaths(){
 
  .content-section ul ul li:before {
     content: "\25AA"; /* Square bullet symbol for second-level items */
-    color: #000000;
+    color: var(--logo-color);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -222,6 +222,20 @@ export function getStaticPaths(){
       height: auto;
       display: block;
       margin: 0 auto;
+  }
+
+  /* Dark mode adjustments for markdown tables and callouts */
+  html.dark th {
+      background-color: #374151;
+  }
+  html.dark th,
+  html.dark td {
+      border-color: #4b5563;
+  }
+  html.dark aside {
+      background-color: #1f2937;
+      border-left-color: var(--logo-color);
+      color: #e5e7eb;
   }
 
 </style>
