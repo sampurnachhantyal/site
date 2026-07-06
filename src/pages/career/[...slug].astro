@@ -1,32 +1,22 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 // import Tags from "../../components/Tags.astro";
-import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import { formatDate } from "../../utils";
 
-const { slug } = Astro.params;
-
-if (slug === undefined) {
-  throw new Error("Slug is required");
+export async function getStaticPaths() {
+  const careerEntries = await getCollection("career");
+  return careerEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const entry = await getEntry("career", slug);
-
-if (entry == undefined) {
-  return Astro.redirect("/404");
-}
-
+const { entry } = Astro.props;
 const { Content } = await entry.render();
-
-export function getStaticPaths(){
-  return [
-  {params: {slug: 'vacancy-java-fullstack-developer'}},
-  {params: {slug: 'senior-frontend-developer'}},
-  ];
-}
 ---
 
-<MainLayout>
+<MainLayout title={entry.data.title}>
   <section
     class="pt-20 pb-16 lg:pt-40 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
@@ -72,6 +62,7 @@ export function getStaticPaths(){
   }
   .content-section p {
     margin: 20px 0;
+    line-height: 1.7;
   }
   .content-section h2 {
     margin: 20px 0;
@@ -115,7 +106,8 @@ export function getStaticPaths(){
   }
 
   .content-section ul li {
-    margin-bottom: 5px; /* Adjust spacing between list items */
+    margin-bottom: 14px; /* Adjust spacing between list items */
+    line-height: 1.7;
   }
 
   .content-section ul ul li {
@@ -124,7 +116,7 @@ export function getStaticPaths(){
 
   .content-section ul li:before {
     content: "\2022"; /* Default bullet symbol for first-level items */
-    color: #000000;
+    color: var(--logo-color);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -134,7 +126,7 @@ export function getStaticPaths(){
 
  .content-section ul ul li:before {
     content: "\25AA"; /* Square bullet symbol for second-level items */
-    color: #000000;
+    color: var(--logo-color);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -143,7 +135,8 @@ export function getStaticPaths(){
   }
 
  .content-section ol li {
-    margin-bottom: 5px; /* Adjust spacing between list items */
+    margin-bottom: 14px; /* Adjust spacing between list items */
+    line-height: 1.7;
     list-style-type: decimal;
   }
   .content-section ol ul {
@@ -200,6 +193,20 @@ export function getStaticPaths(){
       height: auto;
       display: block;
       margin: 0 auto;
+  }
+
+  /* Dark mode adjustments for markdown tables and callouts */
+  html.dark th {
+      background-color: #374151;
+  }
+  html.dark th,
+  html.dark td {
+      border-color: #4b5563;
+  }
+  html.dark aside {
+      background-color: #1f2937;
+      border-left-color: var(--logo-color);
+      color: #e5e7eb;
   }
 
 </style>
